@@ -8,30 +8,21 @@
 <meta property="og:title" content="Humaira Khan — Graphic & Motion Designer">
 <meta property="og:description" content="10 years of social, print, outdoor and motion design for retail, jewellery and F&B brands.">
 <meta property="og:image" content="assets/img/billboard.webp">
+<meta name="theme-color" content="#0c0a10">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@500;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;1,9..40,400&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #faf7f2;
-    --surface: #ffffff;
-    --ink: #1e1424;
-    --muted: #6b5f70;
-    --line: #e8e1e9;
-    --accent: #6d2a8c;
-    --gold: #b8892b;
-    --radius: 14px;
-  }
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --bg: #141016;
-      --surface: #1d1720;
-      --ink: #f3eef5;
-      --muted: #a99daf;
-      --line: #2f2733;
-      --accent: #c48ae0;
-      --gold: #e0b45a;
-    }
+    --bg: #0c0a10;
+    --bg-2: #141119;
+    --ink: #f4f0f7;
+    --muted: #9d94a6;
+    --line: #26212d;
+    --pink: #ff3c8e;
+    --gold: #f3c652;
+    --radius: 16px;
+    --gutter: clamp(16px, 4vw, 56px);
   }
   * { box-sizing: border-box; }
   html { scroll-behavior: smooth; }
@@ -39,224 +30,303 @@
     margin: 0;
     background: var(--bg);
     color: var(--ink);
-    font: 16px/1.6 Inter, system-ui, sans-serif;
+    font: 16px/1.6 "DM Sans", system-ui, sans-serif;
     -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
   }
   img, video { display: block; max-width: 100%; }
   a { color: inherit; }
-  .wrap { max-width: 1180px; margin: 0 auto; padding: 0 24px; }
+  ::selection { background: var(--pink); color: #fff; }
+  .display { font-family: Syne, "DM Sans", sans-serif; font-weight: 800; letter-spacing: -.03em; line-height: .95; }
+  .wrap { padding-left: var(--gutter); padding-right: var(--gutter); }
 
-  nav {
-    position: sticky; top: 0; z-index: 10;
-    background: color-mix(in srgb, var(--bg) 88%, transparent);
-    backdrop-filter: blur(10px);
+  /* ---------- top bar ---------- */
+  .bar {
+    position: sticky; top: 0; z-index: 20;
+    display: flex; align-items: center; justify-content: space-between; gap: 16px;
+    padding: 14px var(--gutter);
+    background: color-mix(in srgb, var(--bg) 78%, transparent);
+    backdrop-filter: blur(14px);
     border-bottom: 1px solid var(--line);
   }
-  nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 60px; gap: 16px; }
-  nav .brand { font-family: Fraunces, serif; font-weight: 600; font-size: 19px; text-decoration: none; white-space: nowrap; }
-  nav ul { display: flex; gap: 22px; list-style: none; margin: 0; padding: 0; font-size: 14px; color: var(--muted); }
-  nav ul a { text-decoration: none; }
-  nav ul a:hover { color: var(--ink); }
+  .bar .brand { font-family: Syne, sans-serif; font-weight: 800; font-size: 17px; letter-spacing: -.02em; text-decoration: none; display: flex; align-items: center; gap: 10px; }
+  .bar .brand i { width: 9px; height: 9px; border-radius: 50%; background: var(--pink); box-shadow: 0 0 0 4px color-mix(in srgb, var(--pink) 25%, transparent); }
+  .bar nav { display: flex; gap: 2px; }
+  .bar nav a { font-size: 14px; color: var(--muted); text-decoration: none; padding: 7px 11px; border-radius: 999px; }
+  .bar nav a:hover { color: var(--ink); background: var(--bg-2); }
+  .pill { display: inline-flex; align-items: center; gap: 8px; padding: 9px 16px; border-radius: 999px; font-size: 14px; font-weight: 500; text-decoration: none; border: 1px solid var(--line); background: var(--bg-2); white-space: nowrap; transition: .2s; }
+  .pill:hover { border-color: var(--muted); }
+  .pill.hot { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+  .pill.hot:hover { background: var(--pink); border-color: var(--pink); color: #fff; }
 
-  .hero { padding: 80px 0 64px; display: grid; grid-template-columns: 260px 1fr; gap: 56px; align-items: center; }
-  .hero > div { min-width: 0; }
-  .hero img { width: 260px; height: 260px; border-radius: 50%; object-fit: cover; box-shadow: 0 0 0 6px var(--surface), 0 0 0 7px var(--line); }
-  .eyebrow { font-size: 13px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--gold); margin: 0 0 12px; }
-  h1 { font-family: Fraunces, serif; font-weight: 600; font-size: clamp(40px, 6vw, 68px); line-height: 1.02; margin: 0 0 20px; letter-spacing: -.01em; }
-  h1 em { font-style: normal; color: var(--accent); }
-  .lede { font-size: 18px; color: var(--muted); max-width: 600px; margin: 0 0 28px; }
-  .cta { display: flex; flex-wrap: wrap; gap: 12px; }
-  .btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 22px; border-radius: 999px; font-weight: 500; font-size: 15px; text-decoration: none; border: 1px solid var(--line); }
-  .btn.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
-  @media (prefers-color-scheme: dark) { .btn.primary { color: #1a1020; } }
+  /* ---------- hero ---------- */
+  .hero { padding: clamp(48px, 9vw, 120px) var(--gutter) 0; }
+  .kicker { font-size: 13px; letter-spacing: .18em; text-transform: uppercase; color: var(--gold); margin: 0 0 18px; display: flex; align-items: center; gap: 12px; }
+  .kicker::before { content: ""; width: 36px; height: 1px; background: var(--gold); }
+  .hero h1 { font-size: clamp(56px, 12.5vw, 176px); margin: 0; text-transform: uppercase; }
+  .hero h1 span { display: block; }
+  .hero h1 .o { color: transparent; -webkit-text-stroke: 2px var(--ink); }
+  .hero .row { display: flex; justify-content: space-between; align-items: flex-end; gap: 32px; flex-wrap: wrap; margin-top: 36px; }
+  .hero .side { display: grid; grid-template-columns: 112px 1fr; gap: 18px; align-items: center; max-width: 520px; }
+  .hero .side img { width: 112px; height: 112px; border-radius: 28px; object-fit: cover; transform: rotate(-4deg); border: 3px solid var(--bg-2); outline: 1px solid var(--line); }
+  .hero .side p { margin: 0; color: var(--muted); }
+  .hero .side p b { color: var(--ink); font-weight: 500; }
+  .hero .cta { display: flex; gap: 10px; flex-wrap: wrap; }
 
-  .stats { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
-  .stats div { padding: 26px 20px; border-left: 1px solid var(--line); }
-  .stats div:first-child { border-left: 0; padding-left: 0; }
-  .stats b { display: block; font-family: Fraunces, serif; font-size: 34px; font-weight: 600; line-height: 1.1; }
+  .marquee { margin-top: 56px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); overflow: hidden; white-space: nowrap; padding: 14px 0; }
+  .marquee div { display: inline-block; animation: slide 28s linear infinite; font-family: Syne, sans-serif; font-weight: 700; font-size: 15px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+  .marquee span { padding: 0 28px; }
+  .marquee span::after { content: "✦"; color: var(--pink); margin-left: 56px; }
+  @keyframes slide { to { transform: translateX(-50%); } }
+
+  .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; margin: 40px var(--gutter) 0; }
+  .stats div { background: var(--bg); padding: 24px 24px; }
+  .stats b { display: block; font-family: Syne, sans-serif; font-weight: 800; font-size: clamp(30px, 3.6vw, 44px); letter-spacing: -.03em; line-height: 1; color: var(--gold); }
   .stats span { font-size: 14px; color: var(--muted); }
 
-  section.block { padding: 88px 0 0; }
-  .head { display: flex; justify-content: space-between; align-items: end; gap: 24px; margin-bottom: 28px; flex-wrap: wrap; }
-  h2 { font-family: Fraunces, serif; font-weight: 600; font-size: clamp(28px, 3.6vw, 40px); line-height: 1.1; margin: 0; }
-  .head p { margin: 0; max-width: 460px; color: var(--muted); }
-  h3 { font-size: 13px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin: 44px 0 16px; }
+  /* ---------- sections ---------- */
+  section.block { padding: clamp(72px, 9vw, 120px) var(--gutter) 0; }
+  .sec-head { display: grid; grid-template-columns: minmax(0, 1fr) minmax(300px, 440px); gap: 20px 48px; align-items: end; margin-bottom: 32px; }
+  .sec-head .num { font-family: Syne, sans-serif; font-weight: 700; font-size: 13px; color: var(--pink); letter-spacing: .14em; grid-column: 1 / -1; text-transform: uppercase; }
+  .sec-head h2 { font-size: clamp(34px, 5.2vw, 68px); margin: 0; }
+  .sec-head p { margin: 0 0 8px; color: var(--muted); max-width: 460px; justify-self: end; font-size: 16px; }
+  h3 { font-family: Syne, sans-serif; font-weight: 700; font-size: 13px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); margin: 48px 0 16px; display: flex; align-items: center; gap: 14px; }
+  h3::after { content: ""; flex: 1; height: 1px; background: var(--line); }
 
-  .grid { display: grid; gap: 16px; }
+  /* ---------- tiles ---------- */
+  .grid { display: grid; gap: 14px; }
   .g2 { grid-template-columns: repeat(2, 1fr); }
   .g3 { grid-template-columns: repeat(3, 1fr); }
   .g4 { grid-template-columns: repeat(4, 1fr); }
   .g5 { grid-template-columns: repeat(5, 1fr); }
-  .tile { margin: 0; background: var(--surface); border-radius: var(--radius); overflow: hidden; border: 1px solid var(--line); cursor: zoom-in; position: relative; }
-  .tile img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s ease; }
-  .tile:hover img { transform: scale(1.03); }
-  .tile.contain img { object-fit: contain; }
-  .tile figcaption { position: absolute; left: 10px; bottom: 10px; background: rgba(20,12,24,.72); color: #fff; font-size: 12px; padding: 4px 10px; border-radius: 999px; backdrop-filter: blur(4px); }
+  .tile { margin: 0; background: var(--bg-2); border-radius: 14px; overflow: hidden; border: 1px solid var(--line); cursor: zoom-in; position: relative; }
+  .tile img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s ease; }
+  .tile:hover img { transform: scale(1.04); }
+  .tile.contain { padding: 18px; }
+  .tile.contain img { object-fit: contain; border-radius: 8px; }
+  .tile figcaption { position: absolute; inset: auto 0 0 0; padding: 36px 14px 12px; background: linear-gradient(transparent, rgba(12,10,16,.9)); font-size: 13px; opacity: 0; transition: opacity .3s; }
+  .tile:hover figcaption, .tile:focus-visible figcaption { opacity: 1; }
   .sq { aspect-ratio: 1; }
   .tall { aspect-ratio: 9 / 16; }
   .wide { aspect-ratio: 16 / 10; }
   .print { aspect-ratio: 454 / 709; }
   .poster { aspect-ratio: 5 / 8; }
 
-  .vid { margin: 0; background: #000; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--line); }
+  /* feature pair (billboard + tote) */
+  .feature { position: relative; border-radius: var(--radius); overflow: hidden; display: grid; align-items: end; isolation: isolate; cursor: zoom-in; margin: 0; aspect-ratio: 16 / 10; border: 1px solid var(--line); }
+  .feature img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -1; transition: transform 1.2s ease; }
+  .feature:hover img { transform: scale(1.03); }
+  .feature::after { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(to top, rgba(12,10,16,.9) 0%, rgba(12,10,16,.15) 50%, transparent 100%); }
+  .feature figcaption { padding: 22px 24px; display: flex; justify-content: space-between; align-items: end; gap: 16px; }
+  .feature figcaption b { font-family: Syne, sans-serif; font-weight: 700; font-size: 20px; letter-spacing: -.02em; display: block; }
+  .feature figcaption small { color: #d9d2e0; font-size: 14px; }
+  .tags { display: flex; flex-wrap: wrap; gap: 6px; justify-content: flex-end; }
+  .tags span { font-size: 11px; letter-spacing: .06em; text-transform: uppercase; border: 1px solid rgba(255,255,255,.35); padding: 5px 9px; border-radius: 999px; backdrop-filter: blur(6px); }
+
+  /* ---------- video ---------- */
+  .vid { margin: 0; background: var(--bg-2); border-radius: 14px; overflow: hidden; border: 1px solid var(--line); }
   .vid video { width: 100%; height: 100%; object-fit: contain; background: #000; }
-  .vid figcaption { background: var(--surface); padding: 10px 14px; font-size: 14px; color: var(--muted); border-top: 1px solid var(--line); }
-  .vid figcaption b { color: var(--ink); font-weight: 600; }
+  .vid figcaption { padding: 12px 14px; font-size: 14px; display: flex; justify-content: space-between; gap: 12px; }
+  .vid figcaption b { font-weight: 500; }
+  .vid figcaption span { color: var(--muted); white-space: nowrap; }
   .motion-wide { grid-template-columns: repeat(2, 1fr); }
   .motion-sq { grid-template-columns: repeat(3, 1fr); }
   .motion-tall { grid-template-columns: repeat(3, 1fr); max-width: 900px; }
 
-  .services { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-  .services div { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 24px; }
-  .services b { display: block; font-family: Fraunces, serif; font-size: 20px; margin-bottom: 6px; }
-  .services p { margin: 0; color: var(--muted); font-size: 15px; }
+  /* ---------- services ---------- */
+  .lede { font-family: Syne, sans-serif; font-weight: 500; font-size: clamp(22px, 2.8vw, 34px); line-height: 1.25; letter-spacing: -.02em; margin: 0; max-width: 900px; }
+  .lede em { font-style: normal; color: var(--pink); }
+  .services { list-style: none; margin: 40px 0 0; padding: 0; border-top: 1px solid var(--line); }
+  .services li { display: grid; grid-template-columns: 56px 1fr 1.2fr; gap: 24px; padding: 26px 0; border-bottom: 1px solid var(--line); align-items: baseline; }
+  .services li i { font-style: normal; font-family: Syne, sans-serif; font-weight: 700; color: var(--pink); font-size: 13px; letter-spacing: .14em; }
+  .services li b { font-family: Syne, sans-serif; font-weight: 700; font-size: 22px; letter-spacing: -.02em; }
+  .services li p { margin: 0; color: var(--muted); }
 
-  .contact { margin: 110px 0 0; padding: 72px 0 80px; background: var(--ink); color: var(--bg); text-align: center; }
-  .contact h2 { color: var(--bg); font-size: clamp(32px, 5vw, 52px); }
-  .contact p { color: color-mix(in srgb, var(--bg) 70%, transparent); margin: 14px auto 30px; max-width: 520px; }
-  .contact .btn.primary { background: var(--gold); border-color: var(--gold); color: #1a1020; font-size: 17px; padding: 14px 28px; }
-  footer { text-align: center; font-size: 13px; color: var(--muted); padding: 22px 0; }
+  /* ---------- contact ---------- */
+  .contact { padding: clamp(80px, 12vw, 160px) var(--gutter); text-align: center; }
+  .contact .k { font-size: 13px; letter-spacing: .18em; text-transform: uppercase; color: var(--gold); margin: 0 0 20px; }
+  .contact a.big { display: block; font-size: clamp(26px, 6.2vw, 92px); text-decoration: none; word-break: break-all; transition: color .2s; }
+  .contact a.big:hover { color: var(--pink); }
+  .contact .sub { color: var(--muted); max-width: 520px; margin: 24px auto 0; }
+  footer { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; padding: 20px var(--gutter) 28px; border-top: 1px solid var(--line); font-size: 13px; color: var(--muted); }
 
-  dialog { border: 0; padding: 0; background: transparent; max-width: 94vw; max-height: 94vh; }
-  dialog::backdrop { background: rgba(10,6,12,.88); }
-  dialog img { max-width: 94vw; max-height: 90vh; border-radius: 8px; }
-  dialog button { position: fixed; top: 16px; right: 20px; background: rgba(255,255,255,.14); color: #fff; border: 0; width: 44px; height: 44px; border-radius: 50%; font-size: 22px; cursor: pointer; }
+  /* ---------- lightbox ---------- */
+  dialog { border: 0; padding: 0; background: transparent; max-width: 96vw; max-height: 96vh; }
+  dialog::backdrop { background: rgba(6,4,9,.92); backdrop-filter: blur(8px); }
+  dialog img { max-width: 94vw; max-height: 86vh; border-radius: 10px; }
+  dialog figcaption { color: var(--muted); text-align: center; font-size: 14px; margin-top: 12px; }
+  dialog button { position: fixed; background: rgba(255,255,255,.1); color: #fff; border: 0; width: 46px; height: 46px; border-radius: 50%; font-size: 22px; cursor: pointer; }
+  dialog button:hover { background: var(--pink); }
+  dialog .x { top: 18px; right: 20px; }
+  dialog .prev { left: 16px; top: 50%; transform: translateY(-50%); }
+  dialog .next { right: 16px; top: 50%; transform: translateY(-50%); }
 
+  /* ---------- reveal ---------- */
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s ease; }
+  .reveal.on { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) {
+    .marquee div { animation: none; }
+    .reveal { opacity: 1; transform: none; transition: none; }
+  }
+
+  /* ---------- responsive ---------- */
   @media (max-width: 900px) {
+    .bar nav { display: none; }
     .g4, .g5 { grid-template-columns: repeat(3, 1fr); }
     .motion-sq, .motion-tall { grid-template-columns: repeat(2, 1fr); }
-    .services { grid-template-columns: 1fr; }
+    .sec-head { grid-template-columns: 1fr; }
+    .sec-head p { justify-self: start; }
+    .services li { grid-template-columns: 40px 1fr; }
+    .services li p { grid-column: 2; }
   }
-  @media (max-width: 720px) {
-    .wrap { padding: 0 16px; }
-    nav ul { display: none; }
-    .hero { grid-template-columns: 1fr; gap: 28px; padding: 48px 0 40px; text-align: center; }
-    .hero img { width: 180px; height: 180px; margin: 0 auto; }
-    .lede { margin-left: auto; margin-right: auto; }
-    .cta { justify-content: center; }
-    .stats { grid-template-columns: repeat(2, 1fr); }
-    .stats div:nth-child(3) { border-left: 0; padding-left: 0; }
-    .stats div:nth-child(n+3) { border-top: 1px solid var(--line); }
+  @media (max-width: 620px) {
+    .hero .side { grid-template-columns: 84px 1fr; }
+    .hero .side img { width: 84px; height: 84px; border-radius: 22px; }
+    .stats { grid-template-columns: 1fr 1fr; }
+    .grid { gap: 10px; }
     .g2, .motion-wide { grid-template-columns: 1fr; }
     .g3, .g4, .g5, .motion-sq, .motion-tall { grid-template-columns: repeat(2, 1fr); }
-    section.block { padding-top: 64px; }
+    .tile figcaption { opacity: 1; padding: 28px 10px 9px; font-size: 12px; }
+    .feature figcaption { flex-direction: column; align-items: flex-start; padding: 16px; }
+    .tags { justify-content: flex-start; }
   }
 </style>
 </head>
 <body>
 
-<nav>
-  <div class="wrap">
-    <a class="brand" href="#">Humaira Khan</a>
-    <ul>
-      <li><a href="#campaigns">Campaigns</a></li>
-      <li><a href="#social">Social</a></li>
-      <li><a href="#print">Print</a></li>
-      <li><a href="#motion">Motion</a></li>
-      <li><a href="#brands">Brands</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </div>
-</nav>
-
-<header class="wrap hero">
-  <img src="assets/img/humaira.webp" alt="Portrait of Humaira Khan">
-  <div>
-    <p class="eyebrow">Graphic &amp; Motion Designer · 10 years</p>
-    <h1>Humaira Khan<br><em>designs that sell</em> and stay.</h1>
-    <p class="lede">I create campaigns for retail, jewellery, food &amp; beverage and community brands. My work covers Instagram feeds, stories and reels, newspaper ads, billboards, standees and brand merchandise.</p>
-    <div class="cta">
-      <a class="btn primary" href="mailto:shane92dieheart@gmail.com">Email me</a>
-      <a class="btn" href="#campaigns">See the work ↓</a>
-    </div>
-  </div>
+<header class="bar">
+  <a class="brand" href="#"><i></i>Humaira Khan</a>
+  <nav>
+    <a href="#campaigns">Campaigns</a>
+    <a href="#social">Social</a>
+    <a href="#print">Print</a>
+    <a href="#motion">Motion</a>
+    <a href="#brands">Brands</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <a class="pill hot" href="mailto:shane92dieheart@gmail.com">Hire me</a>
 </header>
 
-<div class="wrap">
-  <div class="stats">
-    <div><b>10+</b><span>years designing</span></div>
-    <div><b>6</b><span>brands featured here</span></div>
-    <div><b>8</b><span>motion pieces &amp; reels</span></div>
-    <div><b>360°</b><span>social, print, outdoor, merch</span></div>
+<section class="hero">
+  <p class="kicker">Graphic &amp; motion designer · 10 years</p>
+  <h1 class="display"><span>Humaira</span><span class="o">Khan</span></h1>
+  <div class="row">
+    <div class="side">
+      <img src="assets/img/humaira.webp" alt="Portrait of Humaira Khan">
+      <p><b>Designs that sell and stay.</b> I create campaigns for retail, jewellery, food &amp; beverage and community brands. My work covers Instagram feeds, stories and reels, newspaper ads, billboards, standees and brand merchandise.</p>
+    </div>
+    <div class="cta">
+      <a class="pill hot" href="#campaigns">See the work ↓</a>
+      <a class="pill" href="#motion">Watch the reels</a>
+    </div>
   </div>
+  <div class="marquee" aria-hidden="true"><div id="marquee"></div></div>
+</section>
+
+<div class="stats">
+  <div><b>10+</b><span>years designing</span></div>
+  <div><b>6</b><span>brands featured here</span></div>
+  <div><b>EN · UR</b><span>bilingual print &amp; social</span></div>
+  <div><b>360°</b><span>social, print, outdoor, merch</span></div>
 </div>
 
-<main class="wrap">
+<main>
 
   <section class="block" id="campaigns">
-    <div class="head">
-      <h2>Taqwa Jewellers: one brand, every touchpoint</h2>
+    <div class="sec-head reveal">
+      <div class="num">01 — Campaigns</div>
+      <h2 class="display">Taqwa Jewellers: one brand, every touchpoint</h2>
       <p>I've been a long-running design partner for a multi-store jewellery brand, building one visual system in purple, pink and gold across outdoor, merch, social and print.</p>
     </div>
-    <div class="grid g2">
-      <figure class="tile wide"><img src="assets/img/billboard.webp" alt="Taqwa Jewellers billboard mock-up" loading="lazy"><figcaption>Billboard · Ramadan campaign</figcaption></figure>
-      <figure class="tile wide"><img src="assets/img/tote.webp" alt="Taqwa Jewellers tote bag" loading="lazy"><figcaption>Branded tote bag</figcaption></figure>
+    <div class="grid g2 reveal" data-gallery="hero">
+      <figure class="feature tile-like" data-src="billboard" data-cap="Billboard · Ramadan campaign">
+        <img src="assets/img/billboard.webp" alt="Taqwa Jewellers billboard mock-up">
+        <figcaption><div><b>Billboard</b><small>Ramadan campaign · #NekiKaTohfa</small></div><div class="tags"><span>Outdoor</span></div></figcaption>
+      </figure>
+      <figure class="feature tile-like" data-src="tote" data-cap="Branded tote bag">
+        <img src="assets/img/tote.webp" alt="Taqwa Jewellers tote bag" loading="lazy">
+        <figcaption><div><b>Tote bag</b><small>Brand merchandise</small></div><div class="tags"><span>Merch</span></div></figcaption>
+      </figure>
     </div>
     <h3>Ramadan &amp; Eid · #NekiKaTohfa</h3>
-    <div class="grid g4" data-gallery="ramadan"></div>
+    <div class="grid g4 reveal" data-gallery="ramadan"></div>
     <h3>Story series · “Ek Neki Har Roz”, one good deed a day through Ramadan</h3>
-    <div class="grid g5" data-gallery="neki"></div>
+    <div class="grid g5 reveal" data-gallery="neki"></div>
   </section>
 
   <section class="block" id="social">
-    <div class="head">
-      <h2>Social media</h2>
+    <div class="sec-head reveal">
+      <div class="num">02 — Social</div>
+      <h2 class="display">Social media</h2>
       <p>Product posts and seasonal offers for Instagram and Facebook, including the Women's Day "Tag the woman…" adjective series.</p>
     </div>
-    <div class="grid g4" data-gallery="social"></div>
+    <div class="grid g4 reveal" data-gallery="social"></div>
   </section>
 
   <section class="block" id="print">
-    <div class="head">
-      <h2>Print &amp; press</h2>
+    <div class="sec-head reveal">
+      <div class="num">03 — Print</div>
+      <h2 class="display">Print &amp; press</h2>
       <p>Newspaper ads, store reopening flyers in English and Urdu, an anniversary ad and community notices.</p>
     </div>
-    <div class="grid g5" data-gallery="print"></div>
+    <div class="grid g5 reveal" data-gallery="print"></div>
   </section>
 
   <section class="block" id="motion">
-    <div class="head">
-      <h2>Motion &amp; reels</h2>
+    <div class="sec-head reveal">
+      <div class="num">04 — Motion</div>
+      <h2 class="display">Motion &amp; reels</h2>
       <p>Brand films, animated product posts and short-form reels. Press play, and unmute for the reels.</p>
     </div>
-    <div class="grid motion-wide" data-videos="wide"></div>
+    <div class="grid motion-wide reveal" data-videos="wide"></div>
     <h3>Animated posts</h3>
-    <div class="grid motion-sq" data-videos="sq"></div>
+    <div class="grid motion-sq reveal" data-videos="sq"></div>
     <h3>Reels</h3>
-    <div class="grid motion-tall" data-videos="tall"></div>
+    <div class="grid motion-tall reveal" data-videos="tall"></div>
   </section>
 
   <section class="block" id="brands">
-    <div class="head">
-      <h2>Food &amp; beverage, and other brands</h2>
+    <div class="sec-head reveal">
+      <div class="num">05 — Brands</div>
+      <h2 class="display">Food &amp; beverage, and other brands</h2>
       <p>Identity, standees and menu posters for a juice bar, plus social campaigns for an automotive dealer, a faith-and-science publisher and a finance brand.</p>
     </div>
     <h3>JB Juice Bar</h3>
-    <div class="grid g4" data-gallery="jb"></div>
+    <div class="grid g4 reveal" data-gallery="jb"></div>
     <h3>More clients</h3>
-    <div class="grid g4" data-gallery="other"></div>
+    <div class="grid g4 reveal" data-gallery="other"></div>
   </section>
 
-  <section class="block">
-    <div class="head"><h2>What I can do for you</h2></div>
-    <div class="services">
-      <div><b>Social media design</b><p>Feed posts, stories, carousels and campaign series that stay on-brand week after week.</p></div>
-      <div><b>Print &amp; outdoor</b><p>Newspaper ads, flyers, standees, billboards and merchandise, ready for print.</p></div>
-      <div><b>Motion &amp; video</b><p>Animated posts, brand AVs and short-form reels for Instagram and YouTube.</p></div>
+  <section class="block" id="services">
+    <div class="sec-head reveal">
+      <div class="num">06 — Services</div>
+      <h2 class="display">What I can do for you</h2>
     </div>
+    <p class="lede reveal">Ten years of making brands look sharp wherever they show up: <em>feeds, stories, reels, newspaper ads, billboards, standees and merchandise.</em> I keep a visual system consistent week after week, and I move fast when a festival offer needs to go live tomorrow.</p>
+    <ul class="services reveal">
+      <li><i>01</i><b>Social media design</b><p>Feed posts, stories, carousels and campaign series that stay on-brand week after week.</p></li>
+      <li><i>02</i><b>Print &amp; outdoor</b><p>Newspaper ads, flyers, standees, billboards and merchandise, ready for print.</p></li>
+      <li><i>03</i><b>Motion &amp; video</b><p>Animated posts, brand AVs and short-form reels for Instagram and YouTube.</p></li>
+    </ul>
   </section>
 </main>
 
 <section class="contact" id="contact">
-  <div class="wrap">
-    <h2>Let's make something together.</h2>
-    <p>I'm available for full-time roles and freelance projects. Tell me about your brand.</p>
-    <a class="btn primary" href="mailto:shane92dieheart@gmail.com">shane92dieheart@gmail.com</a>
-  </div>
+  <p class="k">Available for full-time roles and freelance</p>
+  <a class="big display" href="mailto:shane92dieheart@gmail.com">shane92dieheart@gmail.com</a>
+  <p class="sub">Tell me about your brand and what you need. I usually reply within a day.</p>
 </section>
-<footer>© Humaira Khan. All work shown was created for the respective brands.</footer>
+<footer>
+  <span>© Humaira Khan</span>
+  <span>All work shown was created for the respective brands.</span>
+</footer>
 
-<dialog id="lightbox"><button aria-label="Close">×</button><img alt=""></dialog>
+<dialog id="lightbox">
+  <figure style="margin:0"><img alt=""><figcaption></figcaption></figure>
+  <button class="prev" aria-label="Previous">‹</button>
+  <button class="next" aria-label="Next">›</button>
+  <button class="x" aria-label="Close">×</button>
+</dialog>
 
 <script>
   const G = {
@@ -297,23 +367,53 @@
     tall: [["reel-hotel", "9 / 16", "Travel reel", "Short-form · with outro"], ["reel-cars", "9 / 16", "Automotive reel", "“Dreaming of a perfect car?”"], ["reel-agency", "9 / 16", "Agency promo", "Marketing services reel"]],
   };
 
+  const words = ["Social media", "Print & press", "Outdoor", "Motion & reels", "Merchandise", "Identity", "Campaigns"];
+  document.getElementById("marquee").innerHTML = [...words, ...words].map(w => `<span>${w}</span>`).join("");
+
   document.querySelectorAll("[data-gallery]").forEach(el => {
+    if (!G[el.dataset.gallery]) return;
     el.innerHTML = G[el.dataset.gallery].map(([f, shape, cap]) =>
-      `<figure class="tile ${shape}${f.includes("logo") ? " contain" : ""}"><img src="assets/img/${f}.webp" alt="${cap}" loading="lazy"><figcaption>${cap}</figcaption></figure>`
+      `<figure class="tile ${shape}${f.includes("logo") ? " contain" : ""}" data-src="${f}" data-cap="${cap}" tabindex="0" role="button" aria-label="${cap}, open full size"><img src="assets/img/${f}.webp" alt="${cap}" loading="lazy"><figcaption>${cap}</figcaption></figure>`
     ).join("");
   });
   document.querySelectorAll("[data-videos]").forEach(el => {
     el.innerHTML = V[el.dataset.videos].map(([f, ratio, title, sub]) =>
-      `<figure class="vid"><video style="aspect-ratio:${ratio}" src="assets/video/${f}.mp4" poster="assets/video/${f}.webp" controls playsinline preload="none"></video><figcaption><b>${title}</b> · ${sub}</figcaption></figure>`
+      `<figure class="vid"><video style="aspect-ratio:${ratio}" src="assets/video/${f}.mp4" poster="assets/video/${f}.webp" controls playsinline preload="none"></video><figcaption><b>${title}</b><span>${sub}</span></figcaption></figure>`
     ).join("");
   });
+  document.addEventListener("play", e => {
+    if (e.target.tagName !== "VIDEO") return;
+    document.querySelectorAll("video").forEach(v => { if (v !== e.target) v.pause(); });
+  }, true);
 
+  // lightbox: prev/next cycles within the gallery that was opened
   const box = document.getElementById("lightbox");
-  document.addEventListener("click", e => {
-    const tile = e.target.closest(".tile");
-    if (tile) { box.querySelector("img").src = tile.querySelector("img").src; box.showModal(); }
-    else if (e.target === box || e.target.closest("dialog button")) box.close();
+  const boxImg = box.querySelector("img"), boxCap = box.querySelector("figcaption");
+  let set = [], idx = 0;
+  function show(i) {
+    idx = (i + set.length) % set.length;
+    const el = set[idx];
+    boxImg.src = `assets/img/${el.dataset.src}.webp`; boxImg.alt = el.dataset.cap; boxCap.textContent = el.dataset.cap;
+    if (!box.open) box.showModal();
+  }
+  function open(el) {
+    set = [...el.closest("[data-gallery]").querySelectorAll("[data-src]")];
+    show(set.indexOf(el));
+  }
+  document.addEventListener("click", e => { const t = e.target.closest("[data-src]"); if (t) open(t); });
+  document.addEventListener("keydown", e => {
+    const t = e.target.closest?.("[data-src]");
+    if (t && (e.key === "Enter" || e.key === " ")) { e.preventDefault(); open(t); }
   });
+  box.addEventListener("click", e => {
+    if (e.target.closest(".prev")) show(idx - 1);
+    else if (e.target.closest(".next")) show(idx + 1);
+    else if (e.target === box || e.target.closest(".x")) box.close();
+  });
+  box.addEventListener("keydown", e => { if (e.key === "ArrowLeft") show(idx - 1); if (e.key === "ArrowRight") show(idx + 1); });
+
+  const io = new IntersectionObserver(es => es.forEach(en => { if (en.isIntersecting) { en.target.classList.add("on"); io.unobserve(en.target); } }), { rootMargin: "0px 0px -8% 0px" });
+  document.querySelectorAll(".reveal").forEach(el => io.observe(el));
 </script>
 </body>
 </html>
